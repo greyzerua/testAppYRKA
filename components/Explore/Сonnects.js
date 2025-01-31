@@ -1,5 +1,4 @@
 import React from "react";
-
 import {LinearGradient} from "expo-linear-gradient";
 import {Pressable, Text, View} from "react-native";
 import StarIcon from "../icons/star-icon";

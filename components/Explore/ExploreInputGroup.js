@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, View} from 'react-native';
+import {View} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import {Input} from "../Input";
 import ScanIcon from "../icons/scan-icon";

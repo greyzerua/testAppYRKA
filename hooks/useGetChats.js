@@ -5,22 +5,17 @@ import uuid from "react-native-uuid";
 
 export const useGetChats = () => {
     const isFocused = useIsFocused();
-
     const navigation = useNavigation();
-
     const [chats, setChats] = useState([]);
 
     const getData = async () => {
-
         const storeChats = await getChats();
-
         setChats(storeChats);
     };
 
     useEffect(() => {
         getData();
     }, [isFocused]);
-
 
     const createChat = (type, selectedEntity, initialMessage) => {
         const existingChat = chats.find((chat) => chat.type === type && chat.selectedEntity === selectedEntity);
@@ -49,7 +44,6 @@ export const useGetChats = () => {
     };
 
     const createNewChat = (type, selectedEntity, initialMessage) => {
-
         const newChat = {
             id: uuid.v4(),
             type,
