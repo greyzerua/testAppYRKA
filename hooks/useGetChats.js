@@ -62,9 +62,16 @@ export const useGetChats = () => {
         navigation.navigate('Chat', { chat: newChat });
     };
 
+    const deleteChat = async (chatId) => {
+        const updatedChats = chats.filter(chat => chat.id !== chatId);
+        setChats(updatedChats);
+        await saveChatsToStorage(updatedChats);
+    };
+
     return {
         chats,
         createChat,
         createNewChat,
+        deleteChat
     };
 };

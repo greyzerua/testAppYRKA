@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView, Pressable} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Input} from "../components/Input";
 import SearchIcon from "../components/icons/search-icon";
@@ -16,7 +16,6 @@ import {getWelcomeMessage} from "../constants";
 export const Explore = () => {
     const {
         createChat,
-        createNewChat,
     } = useGetChats();
     return (
         <SafeAreaView className="flex-1 bg-bgPrimary">
@@ -32,16 +31,12 @@ export const Explore = () => {
                 <Banner/>
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <AssistantsSection onAssistantSelect={(name) => createChat('assistant', name, getWelcomeMessage(name))}/>
+                <AssistantsSection
+                    onAssistantSelect={(name) => createChat('assistant', name, getWelcomeMessage(name))}/>
                 <PromtsSection onPromtsSelect={(subtitle) => createChat('promts', subtitle, subtitle)}/>
                 <AdvicesSection onAdviceSelect={(title) => createChat('advices', title, title)}/>
             </ScrollView>
-            <Pressable onPress={() => createNewChat('newChat', 'New Chat', getWelcomeMessage('AI assistant') )}>
-                <View pointerEvents="none">
-                    <ExploreInputGroup/>
-                </View>
-            </Pressable>
-
+            <ExploreInputGroup/>
         </SafeAreaView>
     );
 };
